@@ -49,7 +49,7 @@ statement:      POINT INT INT {point($2, $3);}
 %%
 
 int main(int argc, char** argv){
-    setup()
+    setup();
     yyparse();
     return 0;
 }
