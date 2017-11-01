@@ -18,7 +18,7 @@ set_color {return SET_COLOR;}
 [0-9]+ {yylval.iVal = atoi(yytext); return(INT);}
 [0-9]+.\[0-9] { yylval.fVal = atof(yytext); return(FLOAT);}
 \n ;
-[:space:] ;
+[\t ] ;
 . {printf("Error with the token you provided\n");}
 
 %%

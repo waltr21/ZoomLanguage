@@ -3,7 +3,7 @@
   #include <stdlib.h>
   #include "zoomjoystrong.h"
   void yyerror(const char* msg) {
-          //fprintf(stderr, "%s on line no: %d\n", msg, yylineno);
+          fprintf(stderr, "%s on line no: %d\n", msg);
           //yyerror;
     }
 %}
@@ -19,25 +19,29 @@
 // our Flex file.  We want the value to be
 // stored from Flex in the proper data
 // structure.
+%start program
+
 %token <iVal> INT
 %token <fVal> FLOAT
 %token <sVal> VAR
 
-%token END
-%token END_STATEMENT
-%token POINT
-%token LINE
-%token CIRCLE
-%token RECTANGLE
-%token SET_COLOR
+%token <sVal> END
+%token  END_STATEMENT
+%token <sVal> POINT
+%token <sVal> LINE
+%token <sVal> CIRCLE
+%token <sVal> RECTANGLE
+%token <sVal> SET_COLOR
 
 %%
 
-program:        statement_list END_STATEMENT END;
+program:        statement_list end_program;
 
 statement_list: statement
               | statement statement_list
               ;
+
+end_program: END END_STATEMENT;
 
 statement:      POINT INT INT END_STATEMENT {point($2, $3);}
           |     LINE INT INT INT INT END_STATEMENT {line($2, $3, $4, $5);}
