@@ -4,7 +4,7 @@
 
 struct color current;
 
-void setup(){
+void setup( ){
 	window = SDL_CreateWindow
 		(
 		 "SmartTurtle", SDL_WINDOWPOS_UNDEFINED,
