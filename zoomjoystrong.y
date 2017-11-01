@@ -2,6 +2,10 @@
   #include <stdio.h>
   #include <stdlib.h>
   #include "zoomjoystrong.h"
+  void yyerror(const char* msg) {
+          fprintf(stderr, "%s on line no: %d\n", msg, yylineno);
+          //yyerror;
+    }
 %}
 
 %union{

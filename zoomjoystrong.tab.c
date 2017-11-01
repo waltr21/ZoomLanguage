@@ -99,6 +99,10 @@
   #include <stdio.h>
   #include <stdlib.h>
   #include "zoomjoystrong.h"
+  void yyerror(const char* msg) {
+          fprintf(stderr, "%s on line no: %d\n", msg, yylineno);
+          //yyerror;
+    }
 
 
 /* Enabling traces.  */
@@ -121,14 +125,14 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 7 "zoomjoystrong.y"
+#line 11 "zoomjoystrong.y"
 {
   int iVal;
   float fVal;
   char* sval;
 }
 /* Line 193 of yacc.c.  */
-#line 132 "zoomjoystrong.tab.c"
+#line 136 "zoomjoystrong.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -141,7 +145,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 145 "zoomjoystrong.tab.c"
+#line 149 "zoomjoystrong.tab.c"
 
 #ifdef short
 # undef short
@@ -426,7 +430,7 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    32,    32,    34,    35,    38,    39,    40,    41,    42
+       0,    36,    36,    38,    39,    42,    43,    44,    45,    46
 };
 #endif
 
@@ -1335,33 +1339,33 @@ yyreduce:
   switch (yyn)
     {
         case 5:
-#line 38 "zoomjoystrong.y"
+#line 42 "zoomjoystrong.y"
     {point((yyvsp[(2) - (3)].iVal), (yyvsp[(3) - (3)].iVal));;}
     break;
 
   case 6:
-#line 39 "zoomjoystrong.y"
+#line 43 "zoomjoystrong.y"
     {line((yyvsp[(2) - (5)].iVal), (yyvsp[(3) - (5)].iVal), (yyvsp[(4) - (5)].iVal), (yyvsp[(5) - (5)].iVal));;}
     break;
 
   case 7:
-#line 40 "zoomjoystrong.y"
+#line 44 "zoomjoystrong.y"
     {circle((yyvsp[(2) - (4)].iVal), (yyvsp[(3) - (4)].iVal), (yyvsp[(4) - (4)].iVal));;}
     break;
 
   case 8:
-#line 41 "zoomjoystrong.y"
+#line 45 "zoomjoystrong.y"
     {rectangle((yyvsp[(2) - (5)].iVal), (yyvsp[(3) - (5)].iVal), (yyvsp[(4) - (5)].iVal), (yyvsp[(5) - (5)].iVal));;}
     break;
 
   case 9:
-#line 42 "zoomjoystrong.y"
+#line 46 "zoomjoystrong.y"
     {set_color((yyvsp[(2) - (4)].iVal), (yyvsp[(3) - (4)].iVal), (yyvsp[(4) - (4)].iVal));;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1365 "zoomjoystrong.tab.c"
+#line 1369 "zoomjoystrong.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1575,7 +1579,7 @@ yyreturn:
 }
 
 
-#line 45 "zoomjoystrong.y"
+#line 49 "zoomjoystrong.y"
 
 
 int main(int argc, char** argv){

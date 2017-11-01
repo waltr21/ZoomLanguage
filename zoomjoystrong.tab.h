@@ -68,7 +68,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 7 "zoomjoystrong.y"
+#line 11 "zoomjoystrong.y"
 {
   int iVal;
   float fVal;
