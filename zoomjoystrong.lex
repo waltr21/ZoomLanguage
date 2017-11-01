@@ -15,8 +15,8 @@ rectangle {return RECTANGLE;}
 circle {return CIRCLE;}
 set_color {return SET_COLOR;}
 
-[0-9]+ {yylval.iVal = atoi(yytext); return(INT);}
-[0-9]+.\[0-9] { yylval.fVal = atof(yytext); return(FLOAT);}
+[0-9]+ {yylval.iVal = atoi(yytext); return INT;}
+[0-9]+.\[0-9] { yylval.fVal = atof(yytext); return FLOAT;}
 \n ;
 [\t ] ;
 . {printf("Error with the token you provided\n");}

@@ -71,8 +71,9 @@
           fprintf(stderr, "%s on line no: %d\n", msg);
           //yyerror;
     }
+  int yyflex();
 
-#line 76 "zoomjoystrong.tab.c" /* yacc.c:339  */
+#line 77 "zoomjoystrong.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -125,13 +126,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "zoomjoystrong.y" /* yacc.c:355  */
+#line 12 "zoomjoystrong.y" /* yacc.c:355  */
 
   int iVal;
   float fVal;
   char* sval;
 
-#line 135 "zoomjoystrong.tab.c" /* yacc.c:355  */
+#line 136 "zoomjoystrong.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -148,7 +149,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 152 "zoomjoystrong.tab.c" /* yacc.c:358  */
+#line 153 "zoomjoystrong.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -446,8 +447,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    40,    41,    44,    46,    47,    48,    49,
-      50
+       0,    39,    39,    41,    42,    45,    47,    48,    49,    50,
+      51
 };
 #endif
 
@@ -1231,38 +1232,44 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 6:
-#line 46 "zoomjoystrong.y" /* yacc.c:1646  */
+        case 5:
+#line 45 "zoomjoystrong.y" /* yacc.c:1646  */
+    {finish();}
+#line 1239 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 6:
+#line 47 "zoomjoystrong.y" /* yacc.c:1646  */
     {point((yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1238 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1245 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 47 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 48 "zoomjoystrong.y" /* yacc.c:1646  */
     {line((yyvsp[-4].iVal), (yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1244 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1251 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 48 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 49 "zoomjoystrong.y" /* yacc.c:1646  */
     {circle((yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1250 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1257 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 49 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 50 "zoomjoystrong.y" /* yacc.c:1646  */
     {rectangle((yyvsp[-4].iVal), (yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1256 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1263 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 50 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 51 "zoomjoystrong.y" /* yacc.c:1646  */
     {set_color((yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1262 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1269 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1266 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1273 "zoomjoystrong.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires

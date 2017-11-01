@@ -795,12 +795,12 @@ YY_RULE_SETUP
 case 8:
 YY_RULE_SETUP
 #line 18 "zoomjoystrong.lex"
-{yylval.iVal = atoi(yytext); return(INT);}
+{yylval.iVal = atoi(yytext); return INT;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 19 "zoomjoystrong.lex"
-{ yylval.fVal = atof(yytext); return(FLOAT);}
+{ yylval.fVal = atof(yytext); return FLOAT;}
 	YY_BREAK
 case 10:
 /* rule 10 can match eol */
