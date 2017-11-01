@@ -3,7 +3,7 @@
   #include <stdlib.h>
   #include "zoomjoystrong.h"
   void yyerror(const char* msg) {
-          fprintf(stderr, "%s on line no: %d\n", msg, yylineno);
+          //fprintf(stderr, "%s on line no: %d\n", msg, yylineno);
           //yyerror;
     }
 %}
@@ -33,7 +33,7 @@
 
 %%
 
-program:        statement_list END END_STATEMENT;
+program:        statement_list END_STATEMENT END;
 
 statement_list: statement
               | statement statement_list
