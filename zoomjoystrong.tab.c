@@ -72,8 +72,10 @@
           //yyerror;
     }
   int yyflex();
+  int makeColorValid();
+  int makeValid();
 
-#line 77 "zoomjoystrong.tab.c" /* yacc.c:339  */
+#line 79 "zoomjoystrong.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -126,13 +128,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 12 "zoomjoystrong.y" /* yacc.c:355  */
+#line 14 "zoomjoystrong.y" /* yacc.c:355  */
 
   int iVal;
   float fVal;
   char* sval;
 
-#line 136 "zoomjoystrong.tab.c" /* yacc.c:355  */
+#line 138 "zoomjoystrong.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -149,7 +151,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 153 "zoomjoystrong.tab.c" /* yacc.c:358  */
+#line 155 "zoomjoystrong.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -447,8 +449,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    39,    39,    41,    42,    45,    47,    48,    49,    50,
-      51
+       0,    41,    41,    43,    44,    47,    48,    49,    50,    51,
+      54
 };
 #endif
 
@@ -459,7 +461,7 @@ static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "INT", "FLOAT", "VAR", "END",
   "END_STATEMENT", "POINT", "LINE", "CIRCLE", "RECTANGLE", "SET_COLOR",
-  "$accept", "program", "statement_list", "end_program", "statement", YY_NULLPTR
+  "$accept", "program", "statement_list", "statement", "end_program", YY_NULLPTR
 };
 #endif
 
@@ -500,8 +502,8 @@ static const yytype_uint8 yydefact[] =
 {
        0,     0,     0,     0,     0,     0,     0,     0,     3,     0,
        0,     0,     0,     0,     1,     0,     2,     4,     0,     0,
-       0,     0,     0,     5,     6,     0,     0,     0,     0,     0,
-       8,     0,    10,     7,     9
+       0,     0,     0,    10,     5,     0,     0,     0,     0,     0,
+       7,     0,     9,     6,     8
 };
 
   /* YYPGOTO[NTERM-NUM].  */
@@ -513,7 +515,7 @@ static const yytype_int8 yypgoto[] =
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     6,     7,    16,     8
+      -1,     6,     7,     8,    16
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -539,8 +541,8 @@ static const yytype_int8 yycheck[] =
      symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     8,     9,    10,    11,    12,    14,    15,    17,     3,
-       3,     3,     3,     3,     0,     6,    16,    15,     3,     3,
+       0,     8,     9,    10,    11,    12,    14,    15,    16,     3,
+       3,     3,     3,     3,     0,     6,    17,    15,     3,     3,
        3,     3,     3,     7,     7,     3,     3,     3,     3,     3,
        7,     3,     7,     7,     7
 };
@@ -548,15 +550,15 @@ static const yytype_uint8 yystos[] =
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    13,    14,    15,    15,    16,    17,    17,    17,    17,
+       0,    13,    14,    15,    15,    16,    16,    16,    16,    16,
       17
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     2,     1,     2,     2,     4,     6,     5,     6,
-       5
+       0,     2,     2,     1,     2,     4,     6,     5,     6,     5,
+       2
 };
 
 
@@ -1233,43 +1235,43 @@ yyreduce:
   switch (yyn)
     {
         case 5:
-#line 45 "zoomjoystrong.y" /* yacc.c:1646  */
-    {finish();}
-#line 1239 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 47 "zoomjoystrong.y" /* yacc.c:1646  */
+    {point(makeValid((yyvsp[-2].iVal)), makeValid((yyvsp[-1].iVal)));}
+#line 1241 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 47 "zoomjoystrong.y" /* yacc.c:1646  */
-    {point((yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1245 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 48 "zoomjoystrong.y" /* yacc.c:1646  */
+    {line(makeValid((yyvsp[-4].iVal)), makeValid((yyvsp[-3].iVal)), makeValid((yyvsp[-2].iVal)), makeValid((yyvsp[-1].iVal)));}
+#line 1247 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 48 "zoomjoystrong.y" /* yacc.c:1646  */
-    {line((yyvsp[-4].iVal), (yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1251 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 49 "zoomjoystrong.y" /* yacc.c:1646  */
+    {circle(makeValid((yyvsp[-3].iVal)), makeValid((yyvsp[-2].iVal)), makeValid((yyvsp[-1].iVal)));}
+#line 1253 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 49 "zoomjoystrong.y" /* yacc.c:1646  */
-    {circle((yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1257 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 50 "zoomjoystrong.y" /* yacc.c:1646  */
+    {rectangle(makeValid((yyvsp[-4].iVal)), makeValid((yyvsp[-3].iVal)), makeValid((yyvsp[-2].iVal)), makeValid((yyvsp[-1].iVal)));}
+#line 1259 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 50 "zoomjoystrong.y" /* yacc.c:1646  */
-    {rectangle((yyvsp[-4].iVal), (yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1263 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 51 "zoomjoystrong.y" /* yacc.c:1646  */
+    {set_color(makeColorValid((yyvsp[-3].iVal)),makeColorValid((yyvsp[-2].iVal)),makeColorValid((yyvsp[-1].iVal)));}
+#line 1265 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 51 "zoomjoystrong.y" /* yacc.c:1646  */
-    {set_color((yyvsp[-3].iVal), (yyvsp[-2].iVal), (yyvsp[-1].iVal));}
-#line 1269 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 54 "zoomjoystrong.y" /* yacc.c:1646  */
+    {finish();}
+#line 1271 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1273 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1275 "zoomjoystrong.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1497,11 +1499,27 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 53 "zoomjoystrong.y" /* yacc.c:1906  */
+#line 56 "zoomjoystrong.y" /* yacc.c:1906  */
 
 
 int main(int argc, char** argv){
     setup();
     yyparse();
     return 0;
+}
+
+int makeColorValid(int num){
+    if (num > 255){
+	num = 1;
+	printf("Not a valid color number... Setting to 1\n");
+    }
+    return num;
+}
+
+int makeValid(int num){
+   if (num < 0){
+	printf("Not a valid number... Setting to 0\n");
+	num = 0;
+   }   
+   return num;
 }

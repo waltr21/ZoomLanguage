@@ -7,6 +7,8 @@
           //yyerror;
     }
   int yyflex();
+  int makeColorValid();
+  int makeValid();
 %}
 
 %union{
@@ -42,11 +44,11 @@ statement_list: statement
               | statement statement_list
               ;
 
-statement:      POINT INT INT END_STATEMENT {point($2, $3);}
-          |     LINE INT INT INT INT END_STATEMENT {line($2, $3, $4, $5);}
-          |     CIRCLE INT INT INT END_STATEMENT {circle($2, $3, $4);}
-          |     RECTANGLE INT INT INT INT END_STATEMENT {rectangle($2, $3, $4, $5);}
-          |     SET_COLOR INT INT INT END_STATEMENT {set_color($2, $3, $4);}
+statement:      POINT INT INT END_STATEMENT {point(makeValid($2), makeValid($3));}
+          |     LINE INT INT INT INT END_STATEMENT {line(makeValid($2), makeValid($3), makeValid($4), makeValid($5));}
+          |     CIRCLE INT INT INT END_STATEMENT {circle(makeValid($2), makeValid($3), makeValid($4));}
+          |     RECTANGLE INT INT INT INT END_STATEMENT {rectangle(makeValid($2), makeValid($3), makeValid($4), makeValid($5));}
+          |     SET_COLOR INT INT INT END_STATEMENT {set_color(makeColorValid($2),makeColorValid($3),makeColorValid($4));}
 	  ;
 
 end_program: END END_STATEMENT {finish();};
@@ -57,4 +59,20 @@ int main(int argc, char** argv){
     setup();
     yyparse();
     return 0;
+}
+
+int makeColorValid(int num){
+    if (num > 255){
+	num = 1;
+	printf("Not a valid color number... Setting to 1\n");
+    }
+    return num;
+}
+
+int makeValid(int num){
+   if (num < 0){
+	printf("Not a valid number... Setting to 0\n");
+	num = 0;
+   }   
+   return num;
 }
